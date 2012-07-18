@@ -9,8 +9,6 @@ It contains only a few simple functions (compared to http://www.rejetto.com/hfs/
 
 The implementatinon is modified from SimpleHTTPServer.
 
-Emmmm, running in MacOSX will be tested later.
-
 
 build, install, uninstall, run
 ==============================
