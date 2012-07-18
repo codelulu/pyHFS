@@ -33,6 +33,7 @@ try:
 except ImportError:
     from StringIO import StringIO
 
+__dir__ = os.path.realpath(os.path.dirname(os.path.abspath(__file__)))
 
 class HTTPFileServerRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
@@ -128,9 +129,9 @@ class HTTPFileServerRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         ctype = self.guess_type(path)
 
         if self.path[:5] == '/~img':
-            path = dirname + '/res/' + basename[1:] + '.gif'
+            path = __dir__ + '/../res/' + basename[1:] + '.gif'
         elif self.path == '/favicon.ico':
-            path = dirname + '/res/favicon.ico'
+            path = __dir__ + '/../res/favicon.ico'
 
         try:
             f = open(path, 'rb')
@@ -241,7 +242,7 @@ class HTTPFileServerRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
         list_dir(base_path, base_url)
 
-        t = HFS_Template('tpl/filelist.tpl')
+        t = HFS_Template(__dir__ + '/../tpl/filelist.tpl')
         txtList = ''
         for f in all_files:
             txtFile = t['file']
@@ -319,7 +320,7 @@ class HTTPFileServerRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         folder_comment = ''
         user = ''
         
-        t = HFS_Template('tpl/default.tpl')
+        t = HFS_Template(__dir__ + '/../tpl/default.tpl')
 
         txt = t['']
         txt = txt.replace('%style%', t['style'])
