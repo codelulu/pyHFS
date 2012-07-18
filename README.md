@@ -36,7 +36,7 @@ run:
 
     $ python -m hfs.hfs2 [ port ]
 
-  or in the python-hfs's dir:
+  or in the pyHFS's dir:
 
     $ python src/hfs2.py
 
@@ -44,8 +44,11 @@ run:
 License
 =========
 GPLv2.
+
 pyHFS comes with ABSOLUTELY NO WARRANTY.
+
 The files in the directory tpl and res:
+
     GPLv2, Copyright (C) 2002-2008  Massimo Melina (www.rejetto.com).
 
 
