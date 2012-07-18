@@ -291,9 +291,12 @@ class HTTPFileServerRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             self.send_error(404, "No permission to list directory")
             return None
 
+        newlist = []
         for item in list:
-            if item[:1] == '.':
-                list.remove(item)
+            if item[0] != '.':
+                newlist.append(item)
+
+        list = newlist
         
         sortField = self.get_query('sort')
 
